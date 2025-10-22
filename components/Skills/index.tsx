@@ -59,7 +59,7 @@ const SKILLS_ICONS = [
     height: 180,
   },
   {
-    src: "/icons/Wordpress.svg",
+    src: "/icons/wordpress.svg",
     alt: "WORDPRESS",
     width: 90,
     height: 100,
