@@ -82,7 +82,7 @@ const Skills: React.FC<Props> = ({ id }) => {
   return (
     <div
       id={id}
-      className=" bg-[#ffffff] py-8  min-h-screen relative max-sm:min-h-[50vh]"
+      className=" bg-[#ffffff] py-8  min-h-screen relative max-sm:min-h-[60vh]"
     >
       <div className="container grid grid-cols-3 gap-5 justify-items-center align-items-center  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  max-sm:grid-cols-1  max-sm:overflow-y-auto max-sm:h-96 ">
         {SKILLS_ICONS.map((icon, index) => (
