@@ -1,3 +1,7 @@
+"use client";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 interface Props {
   id: string;
 }
@@ -44,36 +48,66 @@ const WORK = [
   },
 ];
 const AboutMe: React.FC<Props> = ({ id }) => {
+const ref = useRef(null);
+const isInView = useInView(ref, { once: false, margin: "-50px" });
+
   return (
-    <div id={id} className="bg-[#ffffff] py-8 min-h-screen max-sm:min-h-[50vh]">
+    <div id={id} className="bg-[#ffffff] py-8 max-sm:min-h-[50vh]" ref={ref}>
       <div className="container">
-        <div>
-          <p className="text-[#000000] text-5xl font-bold tracking-[0.4px] text-center mt-24 max-[650px]:text-2xl ">
+        {/* Заголовок */}
+        <motion.div
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 1.2 }}
+        >
+          <h1 className="text-black text-5xl font-bold text-center mt-24 max-[650px]:text-2xl">
             Профессиональный опыт
-          </p>
-        </div>
-        <div className="mt-6 space-y-20 flex items-center flex-col max-[650px]:mt-4  max-[650px]:space-y-10">
+          </h1>
+        </motion.div>
+
+        {/* Список опыта работы */}
+        <div className="mt-6 space-y-12 flex items-center flex-col max-[650px]:space-y-8">
           {WORK.map(
-            ({ company, position, period, project, responsibilities }, id) => (
-              <div
-                key={id}
-                className="space-y-10 w-[650px] max-[650px]:space-y-5 max-[650px]:w-full"
+            (
+              { company, position, period, project, responsibilities },
+              index
+            ) => (
+              <motion.div
+                key={index}
+                className="w-[650px] max-[650px]:w-full"
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{
+                  duration: 1.2,
+                }}
               >
-                <p className="text-slate-950 text-3xl font-semibold text-center max-[650px]:text-xl  max-[440px]:text-base">
-                  {company}
-                </p>
-                <p className="text-lg font-semibold text-center text-blue-600 max-[650px]:text-base max-[440px]:text-xs">
-                  {position} | {period}
-                </p>
-                <p className="text-blue-600 text-base font-semibold text-center max-[440px]:text-sm">
-                  Проект: {project}
-                </p>
-                <ul className="list-disc list-inside space-y-5 max-[650px]:text-base max-[650px]:w-full max-[440px]:text-sm">
-                  {responsibilities.map((responsibilities, id) => (
-                    <li key={id}>{responsibilities}</li>
-                  ))}
-                </ul>
-              </div>
+                {/* Блок всей информации */}
+                <div className="space-y-6 max-[650px]:space-y-4">
+                  {/* Название компании */}
+                  <h3 className="text-slate-950 text-2xl font-semibold text-center max-[650px]:text-xl">
+                    {company}
+                  </h3>
+
+                  {/* Должность и период */}
+                  <p className="text-blue-600 text-lg font-semibold text-center max-[650px]:text-base">
+                    {position} | {period}
+                  </p>
+
+                  {/* Проект */}
+                  <p className="text-blue-600 text-base font-semibold text-center">
+                    Проект: {project}
+                  </p>
+
+                  {/* Список обязанностей */}
+                  <ul className="list-disc list-inside space-y-3 max-[650px]:text-base">
+                    {responsibilities.map(
+                      (responsibility, responsibilityIndex) => (
+                        <li key={responsibilityIndex}>{responsibility}</li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              </motion.div>
             )
           )}
         </div>
@@ -81,4 +115,5 @@ const AboutMe: React.FC<Props> = ({ id }) => {
     </div>
   );
 };
+
 export default AboutMe;

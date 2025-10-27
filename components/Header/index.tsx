@@ -6,7 +6,8 @@ const LINKS = [
   { name: "Главная", href: "#top" },
   { name: "Обо мне", href: "#about" },
   { name: "Навыки", href: "#skills" },
-  { name: "Мои контакты", href: "#contacts" },
+  { name: "Проекты", href: "#portfolio" },
+  { name: "Контакты", href: "#contacts" },
 ];
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState(-1);
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-blue-600 backdrop-blur-sm shadow-lg">
-      <div className="container pt-8 flex justify-end gap-16 text-[#ffffff] text-base font-medium max-sm:hidden">
+      <div className="container pt-8 pb-8 flex justify-end gap-16 text-[#ffffff] text-base font-medium max-sm:hidden">
         {LINKS.map(({ name, href }, i) => (
           <a
             key={i}

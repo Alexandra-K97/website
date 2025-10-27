@@ -4,17 +4,17 @@ import Header from "@/components/Header";
 import Skills from "@/components/Skills";
 import Contacts from "@/components/Contacts";
 import Top from "@/components/Top";
+import Portfolio from "@/components/Portfolio";
 
 export default function Home() {
   return (
     <>
       <main>
-        <div className="bg-cover bg-center bg-no-repeat bg-[url('/img/code.jpg')] min-h-screen relative">
-          <Header />
-          <Top id="#top" />
-        </div>
+        <Header />
+        <Top id="top" />
         <AboutMe id="about" />
         <Skills id="skills" />
+        <Portfolio id="portfolio" />
         <Contacts id="contacts" />
       </main>
     </>
