@@ -61,9 +61,9 @@ const Portfolio: React.FC<Props> = ({ id }) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">
+          <p className="text-4xl font-bold text-slate-800 mb-4">
             Мои проекты
-          </h2>
+          </p>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Вот некоторые из моих работ, созданных с использованием современных
             технологий

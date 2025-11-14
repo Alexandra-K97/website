@@ -26,7 +26,6 @@ const ProgressBar: React.FC = () => {
         setTimeout(() => setForceAnimate(false), 2000);
       }
     };
-
     if (window.location.hash === "#skills") {
       setForceAnimate(true);
       setTimeout(() => setForceAnimate(false), 2000);
@@ -93,7 +92,6 @@ const SkillBar: React.FC<SkillBarProps> = ({ skill, index, isActive }) => {
           {skill.level}%
         </motion.span>
       </div>
-
       <div className="h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
         <motion.div
           style={{
