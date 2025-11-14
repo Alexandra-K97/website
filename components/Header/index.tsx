@@ -3,20 +3,17 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 const LINKS = [
-  { name: "Главная", href: "#top" },
-  { name: "Обо мне", href: "#about" },
+  { name: "Обо мне", href: "#top" },
   { name: "Навыки", href: "#skills" },
   { name: "Проекты", href: "#portfolio" },
   { name: "Контакты", href: "#contacts" },
 ];
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState(-1);
-
   const [MenuOpen, setMenuOpen] = useState(false);
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-blue-600 backdrop-blur-sm shadow-lg">
-      <div className="container pt-8 pb-8 flex justify-end gap-16 text-[#ffffff] text-base font-medium max-sm:hidden">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-sky-400 backdrop-blur-sm shadow-lg">
+      <div className="container pt-3 pb-3 flex justify-end gap-16 text-[#ffffff] text-base font-medium max-sm:hidden">
         {LINKS.map(({ name, href }, i) => (
           <a
             key={i}
@@ -36,7 +33,7 @@ const Header: React.FC = () => {
 
       <div
         className={twMerge(
-          "absolute top-full left-0 right-0 bg-blue-600 shadow-lg transition-all duration-300 sm:hidden",
+          "absolute top-full left-0 right-0 bg-sky-400 shadow-lg transition-all duration-300 sm:hidden",
           MenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         )}
       >
@@ -61,7 +58,6 @@ const Header: React.FC = () => {
           ))}
         </div>
       </div>
-
       <button
         className="sm:hidden flex flex-col justify-center items-center w-8 h-8 text-white"
         onClick={() => setMenuOpen(!MenuOpen)}

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import ProgressBar from "../ProgressBar";
-
+import { motion } from "framer-motion";
 interface Props {
   id: string;
 }
@@ -72,37 +72,107 @@ const SKILLS_ICONS = [
     width: 100,
     height: 100,
   },
-
   {
     src: "/icons/versel.svg",
-    alt: "Versel",
+    alt: "Vercel",
     width: 100,
     height: 100,
   },
 ];
 const Skills: React.FC<Props> = ({ id }) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const,
+      },
+    },
+  };
   return (
     <div
       id={id}
-      className=" bg-[#ffffff] py-8  min-h-screen flex items-center justify-center max-sm:min-h-[60vh]"
+      className="min-h-screen flex items-center justify-center  bg-gradient-to-br from-blue-500 via-cyan-300 to-cyan-100 py-16"
     >
-      <div className="flex  items-center gap-24">
-        <div className="container grid grid-cols-3 gap-14 justify-items-center align-items-center max-sm:grid-cols-1  max-sm:overflow-y-auto max-sm:h-96 ">
-          {SKILLS_ICONS.map((icon, index) => (
-            <Image
-              key={index}
-              src={icon.src}
-              alt={icon.alt}
-              width={icon.width}
-              height={icon.height}
-              className="mb-10"
-            />
-          ))}
-        </div>
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <p className="text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4">
+            Навыки & Технологии
+          </p>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Технологии и инструменты, которые я использую для создания
+            современных веб-приложений
+          </p>
+        </motion.div>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-8 lg:gap-10 flex-1"
+          >
+            {SKILLS_ICONS.map((icon, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{
+                  scale: 1.15,
+                  y: -8,
+                  transition: { duration: 0.3 },
+                }}
+                className="flex flex-col items-center group"
+              >
+                <div className="relative p-6 bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-300 group-hover:bg-slate-50">
+                  {/* Свечение при hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        <div>
-          <ProgressBar />
+                  <Image
+                    src={icon.src}
+                    alt={icon.alt}
+                    width={icon.width}
+                    height={icon.height}
+                    className="relative z-10 transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <span className="mt-4 text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors duration-300">
+                  {icon.alt}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="flex-1 max-w-lg w-full"
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+              <ProgressBar />
+            </div>
+          </motion.div>
         </div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl -z-10"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10"></div>
       </div>
     </div>
   );
