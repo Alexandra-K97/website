@@ -26,7 +26,7 @@ const Contacts: React.FC<Props> = ({ id }) => {
   return (
     <div
       id={id}
-      className="py-16 bg-gradient-to-br from-blue-500 via-cyan-300 to-cyan-100"
+      className="py-16 bg-gradient-to-br from-blue-500 via-cyan-400 to-cyan-400"
     >
       <div className="container grid gap-8 md:grid-cols-2">
         {TOUCH.map((item, index) => (

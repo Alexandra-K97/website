@@ -19,10 +19,10 @@ const Header: React.FC = () => {
             key={i}
             href={href}
             className={twMerge(
-              "text-white transition-all duration-500",
+              " text-slate-950 transition-all duration-500",
               activeLink === i
                 ? "no-underline text-slate-950"
-                : "hover:text-slate-950 hover:no-underline hover:underline-offset-4"
+                : "hover:text-white hover:no-underline hover:underline-offset-4"
             )}
             onClick={() => setActiveLink(i)}
           >

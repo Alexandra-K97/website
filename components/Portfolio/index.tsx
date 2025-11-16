@@ -14,35 +14,35 @@ const PROJECT = [
   },
   {
     src: "/img/projectone.png",
-    alt: "easy solutions",
+    alt: "IT Site",
     width: 500,
     height: 300,
     technologies: "HTML5, CSS3",
   },
   {
     src: "/img/shop.png",
-    alt: "shop",
+    alt: "Plumbing Shop",
     width: 500,
     height: 300,
     technologies: "HTML5, CSS3",
   },
   {
     src: "/img/programmingschool.png",
-    alt: "programming school",
+    alt: "Programming School",
     width: 500,
     height: 300,
     technologies: "HTML5, CSS3, JavaScript",
   },
   {
     src: "/img/simple.png",
-    alt: "simple",
+    alt: "Simple",
     width: 500,
     height: 300,
     technologies: "HTML5, CSS3, React, Next.js, TypeScript, Tailwind CSS",
   },
   {
     src: "/img/projecttwo.png",
-    alt: "shifTon",
+    alt: "ShifTon",
     width: 500,
     height: 300,
     technologies: "HTML5, CSS3, React, Next.js, TypeScript, Tailwind CSS",
@@ -52,7 +52,7 @@ const Portfolio: React.FC<Props> = ({ id }) => {
   return (
     <div
       id={id}
-      className="min-h-screen bg-gradient-to-br from-blue-500 via-cyan-300 to-cyan-100  py-16"
+      className="min-h-screen bg-gradient-to-br from-blue-500 via-cyan-400 to-cyan-400 py-16"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -61,10 +61,10 @@ const Portfolio: React.FC<Props> = ({ id }) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="text-4xl font-bold text-slate-800 mb-4">
+          <p className="text-4xl font-bold text-[#ffffff] mb-4">
             Мои проекты
           </p>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[#ffffff] max-w-2xl mx-auto">
             Вот некоторые из моих работ, созданных с использованием современных
             технологий
           </p>

@@ -4,7 +4,7 @@ import { motion, useInView, useSpring, useTransform } from "framer-motion";
 const skillsData = [
   { name: "HTML/CSS", level: 60, color: "#f97316" },
   { name: "JavaScript", level: 30, color: "#3b82f6" },
-  { name: "React", level: 25, color: "#06b6d4" },
+  { name: "React", level: 30, color: "#06b6d4" },
   { name: "TypeScript", level: 25, color: "#2563eb" },
   { name: "Next.js", level: 10, color: "#000000" },
   { name: "WordPress", level: 40, color: "#21759b" },

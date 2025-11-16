@@ -26,13 +26,13 @@ const SKILLS_ICONS = [
   },
   {
     src: "/icons/react.svg",
-    alt: "REACT",
+    alt: "React",
     width: 90,
     height: 90,
   },
   {
     src: "/icons/next.js.svg",
-    alt: "NEXT.js",
+    alt: "Next.js",
     width: 100,
     height: 100,
   },
@@ -50,7 +50,7 @@ const SKILLS_ICONS = [
   },
   {
     src: "/icons/git.svg",
-    alt: "git",
+    alt: "Git",
     width: 90,
     height: 90,
   },
@@ -62,7 +62,7 @@ const SKILLS_ICONS = [
   },
   {
     src: "/icons/wordpress.svg",
-    alt: "WORDPRESS",
+    alt: "Wordpress",
     width: 90,
     height: 90,
   },
@@ -105,7 +105,7 @@ const Skills: React.FC<Props> = ({ id }) => {
   return (
     <div
       id={id}
-      className="min-h-screen flex items-center justify-center  bg-gradient-to-br from-blue-500 via-cyan-300 to-cyan-100 py-16"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-cyan-400 to-cyan-400 py-16"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -114,10 +114,10 @@ const Skills: React.FC<Props> = ({ id }) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4">
+          <p className="text-5xl font-bold text-[#ffffff]  mb-4">
             Навыки & Технологии
           </p>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[#ffffff] max-w-2xl mx-auto">
             Технологии и инструменты, которые я использую для создания
             современных веб-приложений
           </p>
@@ -142,9 +142,7 @@ const Skills: React.FC<Props> = ({ id }) => {
                 className="flex flex-col items-center group"
               >
                 <div className="relative p-6 bg-white rounded-2xl shadow-lg border border-slate-200/60 hover:shadow-2xl transition-all duration-300 group-hover:bg-slate-50">
-                  {/* Свечение при hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                   <Image
                     src={icon.src}
                     alt={icon.alt}
