@@ -5,10 +5,10 @@ const skillsData = [
   { name: "HTML/CSS", level: 60, color: "#f97316" },
   { name: "JavaScript", level: 30, color: "#3b82f6" },
   { name: "React", level: 30, color: "#06b6d4" },
-  { name: "TypeScript", level: 25, color: "#2563eb" },
+  { name: "TypeScript", level: 30, color: "#2563eb" },
   { name: "Next.js", level: 10, color: "#000000" },
   { name: "WordPress", level: 40, color: "#21759b" },
-  { name: "PHP", level: 20, color: "#777bb4" },
+  { name: "PHP", level: 30, color: "#777bb4" },
 ];
 const ProgressBar: React.FC = () => {
   const ref = useRef(null);
@@ -22,7 +22,6 @@ const ProgressBar: React.FC = () => {
     const handleHashChange = () => {
       if (window.location.hash === "#skills") {
         setForceAnimate(true);
-
         setTimeout(() => setForceAnimate(false), 2000);
       }
     };

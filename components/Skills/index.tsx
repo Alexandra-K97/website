@@ -78,6 +78,12 @@ const SKILLS_ICONS = [
     width: 100,
     height: 100,
   },
+  {
+    src: "/icons/cursor.svg",
+    alt: "Cursor",
+    width: 100,
+    height: 100,
+  },
 ];
 const Skills: React.FC<Props> = ({ id }) => {
   const containerVariants = {
